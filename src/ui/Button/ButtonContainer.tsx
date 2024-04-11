@@ -1,10 +1,10 @@
 import type { ButtonContainerProps } from "~/types/pokemon";
 import Button from "./Button";
 
-const ButtonContainer = ({ name }: ButtonContainerProps) => {
+const ButtonContainer = ({ name, handleClick }: ButtonContainerProps) => {
   return (
     <div className="inline-flex rounded-r">
-      <Button>{name}</Button>
+      <Button handleClick={handleClick}>{name}</Button>
     </div>
   );
 };
