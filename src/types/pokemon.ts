@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 //region POKEMON
 export interface Pokemon {
   name: string;
@@ -9,6 +11,8 @@ export interface PokemonListProps {
     isSuccess: boolean;
     data:
       | {
+          next: string | null;
+          previous: string | null;
           results: {
             name: string;
           }[];
@@ -20,7 +24,15 @@ export interface PokemonListProps {
 export interface PokemonResponse {
   isLoading: boolean;
   isSuccess: boolean;
-  data: { results: { name: string }[] } | undefined;
+  data:
+    | {
+        next: string | null;
+        previous: string | null;
+        results: {
+          name: string;
+        }[];
+      }
+    | undefined;
 }
 
 export interface pokemonDetailsProps {
@@ -42,4 +54,17 @@ export interface pokemonDetailsProps {
 //region BUTTON
 export interface ButtonContainerProps {
   name: string;
+  handleClick: () => void;
+}
+
+export interface ButtonProps {
+  children: ReactNode;
+  handleClick: () => void;
+}
+
+//region HEADER
+
+export interface PaginationProps {
+  pokemons: PokemonResponse;
+  handleSetUrl: (url: string) => void;
 }
