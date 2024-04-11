@@ -5,7 +5,7 @@ const base = process.env.API_BASE;
 
 export const pokemonRouter = createTRPCRouter({
   all: publicProcedure.query(async () => {
-    const data = await fetch(`${base}/pokemon?limit=100`);
+    const data = await fetch(`${base}/pokemon?limit=24`);
     return data.json();
   }),
   byId: publicProcedure
@@ -29,7 +29,7 @@ export const pokemonRouter = createTRPCRouter({
   url: publicProcedure
     .input(z.object({ url: z.string() }))
     .query(async ({ input }) => {
-      const data = await fetch(`${input.url}`);
+      const data = await fetch(`${input.url || base}/pokemon?limit=24`);
       return data.json();
     }),
 });
