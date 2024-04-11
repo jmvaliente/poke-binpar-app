@@ -1,3 +1,4 @@
+//region POKEMON
 export interface Pokemon {
   name: string;
 }
@@ -36,4 +37,9 @@ export interface pokemonDetailsProps {
       }[];
     };
   };
+}
+
+//region BUTTON
+export interface ButtonContainerProps {
+  name: string;
 }
