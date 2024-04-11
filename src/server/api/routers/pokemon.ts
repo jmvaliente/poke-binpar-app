@@ -14,4 +14,10 @@ export const pokemonRouter = createTRPCRouter({
       const data = await fetch(`${base}/pokemon/${input.id}`);
       return data.json();
     }),
+  byName: publicProcedure
+    .input(z.object({ name: z.string() }))
+    .query(async ({ input }) => {
+      const data = await fetch(`${base}/pokemon-species/${input.name}`);
+      return data.json();
+    }),
 });
