@@ -1,12 +1,13 @@
 import type { PokemonListProps } from "~/types/pokemon";
 import CardContainer from "~/ui/Card/CardContainer";
 
-const PokemonList = ({ pokemons }: PokemonListProps) => {
-  if (pokemons.isLoading) return null;
-  if (pokemons.isSuccess) {
+const PokemonList = ({ pokemonData }: PokemonListProps) => {
+  if (pokemonData.isSuccess) {
+    const pokemonResult =
+      pokemonData.data?.results ?? pokemonData.data.pokemon_species;
     return (
       <>
-        {pokemons.data!.results.map((pokemon) => (
+        {pokemonResult.map((pokemon) => (
           <CardContainer key={pokemon.name} pokemon={pokemon} />
         ))}
       </>

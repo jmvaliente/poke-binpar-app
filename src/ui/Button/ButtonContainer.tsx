@@ -1,10 +1,12 @@
 import type { ButtonContainerProps } from "~/types/pokemon";
+import { useStore } from "~/store/pokemonStore";
 import Button from "./Button";
 
-const ButtonContainer = ({ name, handleClick }: ButtonContainerProps) => {
+const ButtonContainer = ({ name, url }: ButtonContainerProps) => {
+  const handleClick = useStore((state) => state.updateUrl);
   return (
     <div className="inline-flex rounded-r">
-      <Button handleClick={handleClick}>{name}</Button>
+      <Button handleClick={() => handleClick(url!)}>{name}</Button>
     </div>
   );
 };
