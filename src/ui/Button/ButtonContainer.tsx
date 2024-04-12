@@ -4,9 +4,12 @@ import Button from "./Button";
 
 const ButtonContainer = ({ name, url }: ButtonContainerProps) => {
   const handleClick = useStore((state) => state.updateUrl);
+  const isDisabled = !Boolean(url);
   return (
     <div className="inline-flex rounded-r">
-      <Button handleClick={() => handleClick(url!)}>{name}</Button>
+      <Button handleClick={() => handleClick(url!)} disabled={isDisabled}>
+        {name}
+      </Button>
     </div>
   );
 };

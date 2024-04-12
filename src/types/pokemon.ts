@@ -59,6 +59,7 @@ export interface ButtonContainerProps {
 export interface ButtonProps {
   children: ReactNode;
   handleClick: () => void;
+  disabled: boolean;
 }
 
 //region HEADER
