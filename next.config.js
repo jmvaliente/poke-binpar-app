@@ -19,7 +19,9 @@ const config = {
   },
 
   images: {
-    domains: ["raw.githubusercontent.com"],
+    remotePatterns: [
+      { hostname: "raw.githubusercontent.com", protocol: "https" },
+    ],
   },
 };
 
