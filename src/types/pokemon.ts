@@ -6,18 +6,17 @@ export interface Pokemon {
 }
 
 export interface PokemonListProps {
-  pokemons: {
+  pokemonData: {
     isLoading: boolean;
     isSuccess: boolean;
-    data:
-      | {
-          next: string | null;
-          previous: string | null;
-          results: {
-            name: string;
-          }[];
-        }
-      | undefined;
+    data: {
+      pokemon_species: { name: string }[];
+      next: string | null;
+      previous: string | null;
+      results: {
+        name: string;
+      }[];
+    };
   };
 }
 
@@ -54,7 +53,7 @@ export interface pokemonDetailsProps {
 //region BUTTON
 export interface ButtonContainerProps {
   name: string;
-  handleClick: () => void;
+  url: string | null | undefined;
 }
 
 export interface ButtonProps {
@@ -65,6 +64,28 @@ export interface ButtonProps {
 //region HEADER
 
 export interface PaginationProps {
-  pokemons: PokemonResponse;
-  handleSetUrl: (url: string) => void;
+  pokemonData: PokemonResponse;
+}
+
+export interface SelectContainerProps {
+  generation: {
+    results: {
+      name: string;
+      url: string;
+    }[];
+  };
+}
+
+export interface generationResults {
+  results: {
+    name: string;
+    url: string;
+  }[];
+}
+
+export interface SelectProps {
+  generation: {
+    name: string;
+    url: string;
+  };
 }
