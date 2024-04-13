@@ -6,6 +6,7 @@ import { useStore } from "~/store/pokemonStore";
 
 import { api } from "~/utils/api";
 import Search from "~/components/Search/Search";
+import FilterType from "~/components/Filter/FilterType";
 
 export default function Home() {
   const storage = useStore((state) => state);
@@ -23,6 +24,11 @@ export default function Home() {
       return;
     }
     const endpoint = new URL(storage.url).pathname;
+
+    if (endpoint.includes("type")) {
+      pokemonData = api.type.url.useQuery({ url: storage.url });
+      return;
+    }
 
     if (endpoint.includes("generation")) {
       pokemonData = api.generation.url.useQuery({ url: storage.url });
@@ -44,8 +50,9 @@ export default function Home() {
             {pokemonData && <Pagination pokemonData={pokemonData} />}
           </div>
         </div>
-        <div className="flex w-full justify-center pb-7 pt-3 ">
+        <div className="flex w-full justify-center gap-1 pb-7 pt-3 ">
           <Filter />
+          <FilterType />
         </div>
         <div className=" grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8">
           {pokemonData && <PokemonList pokemonData={pokemonData} />}
