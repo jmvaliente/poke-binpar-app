@@ -1,14 +1,9 @@
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import type { PokemonDataTypes, TypeDataTypes } from "~/types/pokemon";
+import { extractTypesNames } from "~/utils/extractTypesNames";
 
 const base = process.env.API_BASE;
-
-const extractNames = (pokemons) => {
-  const names = pokemons.map((pokemon) => {
-    return { name: pokemon.pokemon.name };
-  });
-  return names;
-};
 
 export const typeRouter = createTRPCRouter({
   all: publicProcedure.query(async () => {
@@ -19,12 +14,13 @@ export const typeRouter = createTRPCRouter({
     .input(z.object({ url: z.string() }))
     .query(async ({ input }) => {
       const data = await fetch(input.url);
-      const typeData = await data.json();
+      const typeData = (await data.json()) as TypeDataTypes;
       if (typeData.pokemon) {
-        const pokemonNames = extractNames(typeData.pokemon);
-        console.log(pokemonNames);
+        const pokemonNames = extractTypesNames(
+          typeData.pokemon,
+        ) as unknown as PokemonDataTypes[];
         return { results: pokemonNames };
       }
-      return typeData.data;
+      return null;
     }),
 });

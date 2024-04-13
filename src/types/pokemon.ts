@@ -113,3 +113,13 @@ export interface ChainType {
     name: string;
   };
 }
+
+export interface TypeDataTypes {
+  pokemon: PokemonDataTypes[];
+}
+
+export interface PokemonDataTypes {
+  pokemon: {
+    name: string;
+  };
+}
