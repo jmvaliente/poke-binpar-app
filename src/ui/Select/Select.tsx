@@ -1,7 +1,7 @@
 import type { SelectProps } from "~/types/pokemon";
 
-const Select = ({ generation }: SelectProps) => {
-  const { name, url } = generation;
+const Select = ({ data }: SelectProps) => {
+  const { name, url } = data;
   return <option value={url}>{name}</option>;
 };
 export default Select;

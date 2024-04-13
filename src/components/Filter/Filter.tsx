@@ -5,6 +5,6 @@ import { api } from "~/utils/api";
 const Filter = () => {
   const generation = api.generation.all.useQuery();
   if (!generation.isSuccess) return null;
-  return <SelectContainer generation={generation.data as generationResults} />;
+  return <SelectContainer data={generation.data as generationResults} />;
 };
 export default Filter;

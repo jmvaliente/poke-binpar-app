@@ -69,7 +69,7 @@ export interface PaginationProps {
 }
 
 export interface SelectContainerProps {
-  generation: {
+  data: {
     results: {
       name: string;
       url: string;
@@ -85,7 +85,7 @@ export interface generationResults {
 }
 
 export interface SelectProps {
-  generation: {
+  data: {
     name: string;
     url: string;
   };
