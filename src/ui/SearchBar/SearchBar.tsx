@@ -1,6 +1,4 @@
-interface SearchBarProps {
-  handleSearch: (value: string) => void;
-}
+import type { SearchBarProps } from "~/types/pokemon";
 
 const SearchBar = ({ handleSearch }: SearchBarProps) => {
   return (

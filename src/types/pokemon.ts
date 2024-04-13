@@ -91,6 +91,10 @@ export interface SelectProps {
   };
 }
 
+export interface SearchBarProps {
+  handleSearch: (value: string) => void;
+}
+
 //region API
 
 export interface SpeciesDataTypes {
