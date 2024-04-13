@@ -11,7 +11,7 @@ const Card = ({ pokemonDetails }: pokemonDetailsProps) => {
             {pokemon.name.toUpperCase()}
           </div>
           <Image
-            src={pokemon.sprites.front_default}
+            src={pokemon.sprites.front_default || "/placeholder.jpg"}
             width={100}
             height={100}
             alt={pokemon.name}
