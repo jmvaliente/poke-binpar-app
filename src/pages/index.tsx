@@ -5,12 +5,19 @@ import Filter from "~/components/Filter/Filter";
 import { useStore } from "~/store/pokemonStore";
 
 import { api } from "~/utils/api";
+import Search from "~/components/Search/Search";
 
 export default function Home() {
   const storage = useStore((state) => state);
   let pokemonData;
 
   const extractData = () => {
+    if (storage.search) {
+      pokemonData = api.evolution.byName.useQuery({
+        name: storage.search,
+      });
+      return;
+    }
     if (!storage.url) {
       pokemonData = api.pokemon.all.useQuery();
       return;
@@ -32,7 +39,10 @@ export default function Home() {
       </Head>
       <main className=" flex min-h-screen flex-col bg-gradient-to-b from-[#2e026d] to-[#15162c]">
         <div className="flex w-full justify-center pt-10">
-          {pokemonData && <Pagination pokemonData={pokemonData} />}
+          <div className="inline-flex gap-1">
+            <Search />
+            {pokemonData && <Pagination pokemonData={pokemonData} />}
+          </div>
         </div>
         <div className="flex w-full justify-center pb-7 pt-3 ">
           <Filter />

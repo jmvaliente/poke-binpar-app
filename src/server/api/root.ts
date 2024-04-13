@@ -1,6 +1,7 @@
 import { pokemonRouter } from "~/server/api/routers/pokemon";
 import { generationRouter } from "~/server/api/routers/generations";
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
+import { evolutionRouter } from "./routers/evolution";
 
 /**
  * This is the primary router for your server.
@@ -10,6 +11,7 @@ import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
 export const appRouter = createTRPCRouter({
   pokemon: pokemonRouter,
   generation: generationRouter,
+  evolution: evolutionRouter,
 });
 
 // export type definition of API

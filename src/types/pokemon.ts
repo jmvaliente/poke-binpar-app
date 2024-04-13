@@ -90,3 +90,22 @@ export interface SelectProps {
     url: string;
   };
 }
+
+//region API
+
+export interface SpeciesDataTypes {
+  evolution_chain: {
+    url: string;
+  };
+}
+
+export interface EvolutionChainDataTypes {
+  chain: ChainType;
+}
+
+export interface ChainType {
+  evolves_to: EvolutionChainDataTypes[];
+  species: {
+    name: string;
+  };
+}
