@@ -1,4 +1,8 @@
-const SearchBar = ({ handleSearch }) => {
+interface SearchBarProps {
+  handleSearch: (value: string) => void;
+}
+
+const SearchBar = ({ handleSearch }: SearchBarProps) => {
   return (
     <form className="flex items-center">
       <div className="relative w-full">
