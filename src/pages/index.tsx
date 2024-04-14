@@ -7,8 +7,7 @@ import FilterType from "~/components/Filter/FilterType";
 import useController from "~/utils/useController";
 
 export default function Home() {
-  const pokemonData = useController().data;
-
+  const pokemonData = useController();
   return (
     <>
       <Head>
@@ -25,9 +24,7 @@ export default function Home() {
           <Filter />
           <FilterType />
         </div>
-        <div className=" grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8">
-          {pokemonData && <PokemonList pokemonData={pokemonData} />}
-        </div>
+        {pokemonData && <PokemonList pokemonData={pokemonData} />}
       </main>
     </>
   );

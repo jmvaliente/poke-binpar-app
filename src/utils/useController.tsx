@@ -30,9 +30,8 @@ const useController = () => {
       if (condition.check()) return condition.action();
     }
   };
-  return {
-    data: extractData(),
-  };
+  const result = extractData();
+  return result;
 };
 
 export default useController;
