@@ -106,6 +106,7 @@ export interface SelectProps {
     name: string;
     url: string;
   };
+  selected: boolean;
 }
 
 export interface SearchBarProps {
