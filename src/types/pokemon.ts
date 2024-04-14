@@ -10,14 +10,16 @@ export interface PokemonListProps {
   pokemonData: {
     isLoading: boolean;
     isSuccess: boolean;
-    data: {
-      pokemon_species: { name: string }[];
-      next: string | null;
-      previous: string | null;
-      results: {
-        name: string;
-      }[];
-    };
+    data:
+      | {
+          pokemon_species: { name: string }[];
+          next: string | null;
+          previous: string | null;
+          results: {
+            name: string;
+          }[];
+        }
+      | undefined;
   };
 }
 
@@ -94,11 +96,15 @@ export interface SelectContainerProps {
   };
 }
 
-export interface generationResults {
+export interface GenerationResults {
   results: {
     name: string;
     url: string;
   }[];
+}
+
+export interface GenerationResultResponse {
+  pokemon_species: GenerationResults;
 }
 
 export interface SelectProps {
@@ -106,6 +112,7 @@ export interface SelectProps {
     name: string;
     url: string;
   };
+  selected: boolean;
 }
 
 export interface SearchBarProps {

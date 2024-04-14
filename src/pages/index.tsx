@@ -2,42 +2,12 @@ import Head from "next/head";
 import Pagination from "~/components/Pagination/Pagination";
 import PokemonList from "~/components/PokemonList/PokemonList";
 import Filter from "~/components/Filter/Filter";
-import { useStore } from "~/store/pokemonStore";
-
-import { api } from "~/utils/api";
 import Search from "~/components/Search/Search";
 import FilterType from "~/components/Filter/FilterType";
+import useController from "~/utils/useController";
 
 export default function Home() {
-  const storage = useStore((state) => state);
-  let pokemonData;
-
-  const extractData = () => {
-    if (storage.search) {
-      pokemonData = api.evolution.byName.useQuery({
-        name: storage.search,
-      });
-      return;
-    }
-    if (!storage.url) {
-      pokemonData = api.pokemon.all.useQuery();
-      return;
-    }
-    const endpoint = new URL(storage.url).pathname;
-
-    if (endpoint.includes("type")) {
-      pokemonData = api.type.url.useQuery({ url: storage.url });
-      return;
-    }
-
-    if (endpoint.includes("generation")) {
-      pokemonData = api.generation.url.useQuery({ url: storage.url });
-    } else {
-      pokemonData = api.pokemon.url.useQuery({ url: storage.url });
-    }
-  };
-
-  extractData();
+  const pokemonData = useController();
   return (
     <>
       <Head>
@@ -54,9 +24,7 @@ export default function Home() {
           <Filter />
           <FilterType />
         </div>
-        <div className=" grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8">
-          {pokemonData && <PokemonList pokemonData={pokemonData} />}
-        </div>
+        {pokemonData && <PokemonList pokemonData={pokemonData} />}
       </main>
     </>
   );
