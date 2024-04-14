@@ -7,9 +7,8 @@ const SelectContainer = ({ data }: SelectContainerProps) => {
   const handleChangeFilter = useStore((state) => state.updateFilter);
   const storage = useStore((state) => state);
 
-  // eslint-disable-line
   const extractOptionName = (e: ChangeEvent<HTMLSelectElement>) =>
-    e.target.options[e.target.selectedIndex].text;
+    e.target.options[e.target.selectedIndex]?.text ?? "";
 
   return (
     <div>
