@@ -10,7 +10,7 @@ To initialize the project, at least node.js version >18 is required.
 - npm run build
 - npn run start
 
-![alt text](./image.png)
+![alt text](image.png)
 
 The technologies used to perform the application were ([T3 Stack](https://create.t3.gg/)):
 
