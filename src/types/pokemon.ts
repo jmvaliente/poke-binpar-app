@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 
 //region POKEMON
 export interface Pokemon {
-  name: string;
+  pokemon: { name: string };
+  selected?: boolean;
 }
 
 export interface PokemonListProps {
@@ -18,6 +19,21 @@ export interface PokemonListProps {
       }[];
     };
   };
+}
+
+export interface pokemonDetailsPage {
+  name: string;
+  height: number;
+  weight: number;
+  base_experience: number;
+  abilities: { ability: { name: string } }[];
+  sprites: { front_default: string };
+  types: { type: { name: string } }[];
+  stats: { stat: { name: string }; base_stat: number }[];
+}
+
+export interface pokemonDetailsPropsPage {
+  pokemonData: pokemonDetailsPage;
 }
 
 export interface PokemonResponse {
@@ -48,6 +64,7 @@ export interface pokemonDetailsProps {
       }[];
     };
   };
+  selected?: boolean;
 }
 
 //region BUTTON
@@ -122,4 +139,23 @@ export interface PokemonDataTypes {
   pokemon: {
     name: string;
   };
+}
+
+//region KPI
+
+export interface KPIContainerProps {
+  value: string;
+  children: React.ReactNode;
+}
+
+export interface MapValuesKPI {
+  height: string;
+  weight: string;
+  "base experience": string;
+}
+
+export interface KPIProps {
+  value: string;
+  unit: string;
+  children: React.ReactNode;
 }
