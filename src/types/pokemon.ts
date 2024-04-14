@@ -21,6 +21,19 @@ export interface PokemonListProps {
   };
 }
 
+export interface pokemonDetailsPage {
+  pokemonData: {
+    name: string;
+    height: number;
+    weight: number;
+    base_experience: number;
+    abilities: { ability: { name: string } }[];
+    sprites: { front_default: string };
+    types: { type: { name: string } }[];
+    stats: { stat: { name: string }; base_stat: number }[];
+  };
+}
+
 export interface PokemonResponse {
   isLoading: boolean;
   isSuccess: boolean;
