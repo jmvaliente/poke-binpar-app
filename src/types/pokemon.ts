@@ -140,3 +140,22 @@ export interface PokemonDataTypes {
     name: string;
   };
 }
+
+//region KPI
+
+export interface KPIContainerProps {
+  value: string;
+  children: React.ReactNode;
+}
+
+export interface MapValuesKPI {
+  height: string;
+  weight: string;
+  "base experience": string;
+}
+
+export interface KPIProps {
+  value: string;
+  unit: string;
+  children: React.ReactNode;
+}

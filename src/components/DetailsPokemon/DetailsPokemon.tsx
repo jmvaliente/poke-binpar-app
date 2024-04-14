@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { pokemonDetailsPropsPage } from "~/types/pokemon";
+import KPIContainer from "~/ui/KPI/KPIContainer";
 
 const DetailsPokemon = ({ pokemonData }: pokemonDetailsPropsPage) => {
   console.log(pokemonData);
@@ -20,18 +21,11 @@ const DetailsPokemon = ({ pokemonData }: pokemonDetailsPropsPage) => {
               />
             </div>
             <div>
-              <p>
-                <span className="font-semibold">Height:</span>{" "}
-                {pokemonData.height} dm
-              </p>
-              <p>
-                <span className="font-semibold">Weight:</span>{" "}
-                {pokemonData.weight} hg
-              </p>
-              <p>
-                <span className="font-semibold">Base Experience:</span>{" "}
+              <KPIContainer value="height">{pokemonData.height}</KPIContainer>
+              <KPIContainer value="weight">{pokemonData.weight}</KPIContainer>
+              <KPIContainer value="base experience">
                 {pokemonData.base_experience}
-              </p>
+              </KPIContainer>
               <p>
                 <span className="font-semibold">Abilities:</span>{" "}
                 {pokemonData.abilities.map((ability) => {
