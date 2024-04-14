@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 //region POKEMON
 export interface Pokemon {
   pokemon: { name: string };
-  selected: boolean;
+  selected?: boolean;
 }
 
 export interface PokemonListProps {
