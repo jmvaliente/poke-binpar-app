@@ -1,7 +1,7 @@
 import Image from "next/image";
-import type { pokemonDetailsPage } from "~/types/pokemon";
+import type { pokemonDetailsPropsPage } from "~/types/pokemon";
 
-const DetailsPokemon = ({ pokemonData }: pokemonDetailsPage) => {
+const DetailsPokemon = ({ pokemonData }: pokemonDetailsPropsPage) => {
   console.log(pokemonData);
   return (
     <div className="w-6/12 bg-white ">
