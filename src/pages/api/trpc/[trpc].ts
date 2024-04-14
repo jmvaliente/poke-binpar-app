@@ -6,7 +6,7 @@ import { createTRPCContext } from "~/server/api/trpc";
 
 export const config = {
   api: {
-    responseLimit: "16mb",
+    responseLimit: "24mb",
   },
 };
 
