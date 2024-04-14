@@ -2,8 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import type { pokemonDetailsProps } from "~/types/pokemon";
 
-const Card = ({ pokemonDetails }: pokemonDetailsProps) => {
+const Card = ({ pokemonDetails, selected }: pokemonDetailsProps) => {
   const pokemon = pokemonDetails.data;
+  const isSelected = selected
+    ? "border-blue-500 border-4"
+    : "border-transparent border-4";
   return (
     <Link
       href={{
@@ -12,7 +15,9 @@ const Card = ({ pokemonDetails }: pokemonDetailsProps) => {
       }}
     >
       <div className="w-auto">
-        <div className="flex flex-col justify-between rounded-b border-b border-l border-r border-gray-400 bg-white p-4">
+        <div
+          className={`${isSelected} flex flex-col justify-between rounded bg-white p-4`}
+        >
           <div className="mb-2 flex flex-col items-center justify-center">
             <div className="mb-2 text-xl font-bold text-gray-900">
               {pokemon.name.toUpperCase()}

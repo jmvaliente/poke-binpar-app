@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 
 //region POKEMON
 export interface Pokemon {
-  name: string;
+  pokemon: { name: string };
+  selected: boolean;
 }
 
 export interface PokemonListProps {
@@ -48,6 +49,7 @@ export interface pokemonDetailsProps {
       }[];
     };
   };
+  selected?: boolean;
 }
 
 //region BUTTON
