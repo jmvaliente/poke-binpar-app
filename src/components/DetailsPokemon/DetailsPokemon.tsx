@@ -3,7 +3,6 @@ import type { pokemonDetailsPropsPage } from "~/types/pokemon";
 import KPIContainer from "~/ui/KPI/KPIContainer";
 
 const DetailsPokemon = ({ pokemonData }: pokemonDetailsPropsPage) => {
-  console.log(pokemonData);
   return (
     <div className="w-6/12 bg-white ">
       <div className="flex flex-col justify-between rounded bg-white p-4">
