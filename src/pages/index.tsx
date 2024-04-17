@@ -4,7 +4,7 @@ import PokemonList from "~/components/PokemonList/PokemonList";
 import Filter from "~/components/Filter/Filter";
 import Search from "~/components/Search/Search";
 import FilterType from "~/components/Filter/FilterType";
-import useController from "~/utils/useController";
+import useController from "~/hooks/useController";
 
 export default function Home() {
   const pokemonData = useController();
