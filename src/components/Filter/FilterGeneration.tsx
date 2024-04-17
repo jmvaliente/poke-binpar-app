@@ -2,7 +2,7 @@ import type { GenerationResults } from "~/types/pokemon";
 import SelectContainer from "~/ui/Select/SelectContainer";
 import { api } from "~/utils/api";
 
-const Filter = () => {
+const FilterGeneration = () => {
   const generation = api.generation.all.useQuery();
   if (!generation.isSuccess) return null;
   return (
@@ -12,4 +12,4 @@ const Filter = () => {
     />
   );
 };
-export default Filter;
+export default FilterGeneration;
