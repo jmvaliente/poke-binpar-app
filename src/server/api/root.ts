@@ -3,6 +3,7 @@ import { generationRouter } from "~/server/api/routers/generations";
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
 import { evolutionRouter } from "./routers/evolution";
 import { typeRouter } from "./routers/type";
+import { filterRouter } from "./routers/filter";
 
 /**
  * This is the primary router for your server.
@@ -14,6 +15,7 @@ export const appRouter = createTRPCRouter({
   generation: generationRouter,
   evolution: evolutionRouter,
   type: typeRouter,
+  filter: filterRouter,
 });
 
 // export type definition of API
