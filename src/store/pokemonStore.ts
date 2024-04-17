@@ -1,19 +1,23 @@
 import { create } from "zustand";
 
 interface PokemonStore {
-  filter: string;
+  generation: string;
+  type: string;
   url: string;
   search: string;
   updateUrl: (url: string) => void;
-  updateFilter: (url: string, type: string) => void;
   updateSearch: (search: string) => void;
+  updateGeneration: (generation: string) => void;
+  updateType: (type: string) => void;
 }
 
 export const useStore = create<PokemonStore>((set) => ({
-  filter: "",
+  generation: "",
+  type: "",
   url: "",
   search: "",
   updateUrl: (url) => set((state) => ({ ...state, url })),
-  updateFilter: (url, filter) => set(() => ({ url, filter })),
-  updateSearch: (search) => set(() => ({ filter: "", search, url: "" })),
+  updateSearch: (search) => set(() => ({ search, url: "" })),
+  updateGeneration: (generation) => set(() => ({ generation })),
+  updateType: (type) => set(() => ({ type })),
 }));
