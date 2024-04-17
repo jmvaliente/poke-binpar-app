@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Pagination from "~/components/Pagination/Pagination";
 import PokemonList from "~/components/PokemonList/PokemonList";
-import Filter from "~/components/Filter/Filter";
+import FilterGeneration from "~/components/Filter/FilterGeneration";
 import Search from "~/components/Search/Search";
 import FilterType from "~/components/Filter/FilterType";
 import useController from "~/hooks/useController";
@@ -21,7 +21,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex w-full justify-center gap-1 pb-7 pt-3 ">
-          <Filter />
+          <FilterGeneration />
           <FilterType />
         </div>
         {pokemonData && <PokemonList pokemonData={pokemonData} />}
